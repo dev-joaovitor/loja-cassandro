@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# env
+.env.development
+.env*.local
+
+# misc
+*.log
+
+# artifacts
+cassandro-db.zip

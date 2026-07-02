@@ -1,0 +1,121 @@
+body {
+  font-family: monospace;
+  font-size: 14px;
+  max-width: 960px;
+  margin: 2em auto;
+  padding: 0 1em;
+  background: #f5f5f5;
+  color: #222;
+}
+h1 { margin: 1em 0 0.5em; }
+h2 { margin: 1.5em 0 0.5em; }
+
+a { color: #1a6baf; }
+
+/* home page: grid of table cards */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75em;
+  margin: 1.5em 0;
+}
+.card {
+  display: block;
+  padding: 1.2em 1em;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  text-align: center;
+}
+.card:hover {
+  border-color: #1a6baf;
+  color: #1a6baf;
+}
+
+/* breadcrumb back-navigation on table pages */
+.breadcrumb {
+  margin-bottom: 0.5em;
+  color: #777;
+}
+.breadcrumb a { text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  background: #fff;
+}
+th, td { border: 1px solid #ddd; padding: 6px 10px; text-align: left; }
+th { background: #e8e8e8; }
+tr:nth-child(even) td { background: #fafafa; }
+td:last-child { white-space: nowrap; width: 1%; }
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px 14px;
+  border: 1px solid #15598f;
+  border-radius: 4px;
+  background: #1a6baf;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { background: #15598f; }
+form.inline { display: inline; }
+form.inline button {
+  padding: 2px 10px;
+  background: #c0392b;
+  border-color: #a93226;
+}
+form.inline button:hover { background: #a93226; }
+
+form.search {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+form.search input[type=search] { flex: 1; max-width: 320px; }
+
+form.record {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1em;
+  max-width: 480px;
+}
+form.record label {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.6em;
+}
+input, select {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+}
+input:focus, select:focus { outline: 1px solid #1a6baf; border-color: #1a6baf; }
+form.record button { margin-top: 0.4em; margin-right: 0.6em; }
+
+.error {
+  color: #a93226;
+  background: #fdecea;
+  border: 1px solid #f5b7b1;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+.success {
+  color: #1e7e34;
+  background: #eafaf0;
+  border: 1px solid #a9dfbf;
+  border-radius: 4px;
+  padding: 8px 12px;
+}

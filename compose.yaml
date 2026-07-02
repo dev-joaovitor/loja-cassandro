@@ -1,0 +1,44 @@
+services:
+  database:
+    container_name: "postgres-dev"
+    image: "postgres:16.0-alpine3.18"
+    env_file:
+      - .env.development
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./schema.sql:/schema.sql:ro"
+      - "./docker/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:ro"
+    networks:
+      - "cassandro"
+
+  database-manager:
+    container_name: "pgadmin-dev"
+    image: "dpage/pgadmin4:9.15.0"
+    env_file:
+      - .env.development
+    ports:
+      - "5050:80"
+    networks:
+      - "cassandro"
+
+  app:
+    container_name: "next-dev"
+    build: "./app"
+    env_file:
+      - .env.development
+    environment:
+      POSTGRES_HOST: "database"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./app:/app"
+      - "/app/node_modules"
+      - "/app/.next"
+    depends_on:
+      - "database"
+    networks:
+      - "cassandro"
+
+networks:
+  cassandro:
